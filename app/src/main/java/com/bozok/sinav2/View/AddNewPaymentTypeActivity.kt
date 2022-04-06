@@ -9,6 +9,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
+import com.bozok.sinav2.Model.Payment
 import com.bozok.sinav2.Model.PaymentType
 import com.bozok.sinav2.R
 import com.bozok.sinav2.Util.Extensions.from
@@ -50,14 +51,13 @@ class AddNewPaymentTypeActivity : AppCompatActivity() {
     }
 
     fun btnDelete_OnClick(){
-
         val adb=AlertDialog.Builder(this)
         adb.setTitle("Delete")
         adb.setMessage("Do you want delete?")
         adb.setPositiveButton("Yes", DialogInterface.OnClickListener { dialogInterface, i ->
 
             addNewPaymentTypeActivityViewModel.deletePaymentType(this,paymentType!!.Id!!)
-
+            addNewPaymentTypeActivityViewModel.deleteAllPayment(this,paymentType!!.Id!!)
             setResult(RESULT_OK)
             finish()
         })

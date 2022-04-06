@@ -8,8 +8,8 @@ import com.bozok.sinav2.Model.PaymentType
 
 class AddNewPaymentTypeActivityViewModel:ViewModel() {
 
-    fun deletePaymentType(context: Context, paymentId: Int){
-        PaymentTypeOperations(context).Delete(paymentId)
+    fun deletePaymentType(context: Context, paymentTypeId: Int){
+        PaymentTypeOperations(context).Delete(paymentTypeId)
     }
 
     fun insertPaymentType(context: Context, paymentType: PaymentType){
@@ -22,6 +22,10 @@ class AddNewPaymentTypeActivityViewModel:ViewModel() {
 
     fun updatePaymentType(context: Context, paymentType: PaymentType){
         PaymentTypeOperations(context).Update(paymentType)
+    }
+
+    fun deleteAllPayment(context: Context, paymentId:Int){
+        PaymentTypeOperations(context).DeleteAllPayments(paymentId)
     }
 
 

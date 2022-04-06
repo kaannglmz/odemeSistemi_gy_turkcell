@@ -12,7 +12,7 @@ class PaymentTypeOperations(context: Context) {
     var dbPaymentType: SQLiteDatabase?=null
 
     init {
-        dbOpenHelper=DatabaseOpenHelper(context,"PaymentDb",null,2)
+        dbOpenHelper=DatabaseOpenHelper(context,"PaymentDb",null,1)
     }
 
     fun Open(){
@@ -61,6 +61,11 @@ class PaymentTypeOperations(context: Context) {
 
                                 //@@@@@@
     fun DeletePayment(id:Int){
+        Open()
+        dbPaymentType!!.delete("Payment","Id=?", arrayOf(id.toString()))
+        Close()
+    }
+    fun DeleteAllPayments(id:Int){
         Open()
         dbPaymentType!!.delete("Payment","Id=?", arrayOf(id.toString()))
         Close()
